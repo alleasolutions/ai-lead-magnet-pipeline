@@ -1,0 +1,15 @@
+{
+  "name": "ai-lead-magnet-pipeline",
+  "version": "1.0.0",
+  "description": "Slash-command pipeline: research -> Notion content -> landing page -> delivery email -> deploy.",
+  "private": true,
+  "scripts": {
+    "generate-pdf": "node lead-magnet-system/scripts/generate-pdf.js"
+  },
+  "dependencies": {
+    "puppeteer": "^23.0.0"
+  },
+  "allowScripts": {
+    "puppeteer@23.11.1": true
+  }
+}

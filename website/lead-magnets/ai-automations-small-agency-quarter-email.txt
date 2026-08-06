@@ -1,0 +1,17 @@
+Subject: Your 5 AI automations guide is here
+
+Hey {{contact.first_name}},
+
+Here's the guide you requested: "5 AI Automations Every Small Agency Should Set Up This Quarter."
+
+Inside, you'll find the five automations agencies are using right now to cut execution hours without adding headcount — starting with the one that saves the most time first, plus a quick-reference checklist so you can get moving today.
+
+Read it here: [NOTION_CONTENT_PAGE_URL]
+
+Pick one automation from the list and implement it this week. Systems compound — the agencies pulling ahead didn't get smarter, they just started sooner.
+
+Follow Alle A Solutions for more on building automation systems for agencies.
+
+Alle A Solutions
+
+PS — if anything in the guide doesn't fit your setup, just reply to this email. Happy to point you in the right direction.
