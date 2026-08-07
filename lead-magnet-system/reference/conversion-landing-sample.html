@@ -379,12 +379,10 @@
   });
 
   // ---- Form submission ----
-  // NOTE: [YOUR_WEBHOOK_URL] is a placeholder — replace with your real
-  // CRM/email webhook (Go High Level, ConvertKit, Beehiiv, etc.) before
-  // this page goes live. Every generated landing page pulls this URL
-  // from the /landing-page command prompt, so update it there once
-  // and every future page uses the real endpoint automatically.
-  const WEBHOOK_URL = '[YOUR_WEBHOOK_URL]';
+  // Twenty CRM workflow webhook trigger. Expects a JSON body (not
+  // FormData) — see .claude/commands/landing-page.md for the field
+  // schema this webhook's workflow was built against.
+  const WEBHOOK_URL = 'https://alleasolutions.twenty.com/webhooks/workflows/db05b54c-c82c-4951-9d2e-60dd1cd9bbd1/0e6476e1-d960-4f65-ad37-d1d74ccc9c5e';
 
   const form = document.getElementById('leadForm');
   const errorEl = document.getElementById('formError');
@@ -408,17 +406,11 @@
     submitBtn.textContent = 'Sending...';
 
     try {
-      const formData = new FormData();
-      formData.append('name', name);
-      formData.append('email', email);
-      formData.append('qualifier', qualifier);
-      formData.append('source', '[lead-magnet-slug]');
-
-      if (WEBHOOK_URL.startsWith('[')) {
-        throw new Error('Webhook not configured');
-      }
-
-      const res = await fetch(WEBHOOK_URL, { method: 'POST', body: formData });
+      const res = await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, qualifier, source: '[lead-magnet-slug]' }),
+      });
       if (!res.ok) throw new Error('Request failed');
 
       document.getElementById('formCard').classList.add('success');

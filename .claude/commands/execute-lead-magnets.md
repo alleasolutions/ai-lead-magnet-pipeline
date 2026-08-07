@@ -29,7 +29,7 @@ For each item, immediately update its status to "In Progress".
 #### Format = "Notion" (default)
 The deliverable is the Notion page. Build marketing assets only:
 1. Research the topic (for landing page copy)
-2. Build the landing page at `website/lead-magnets/[slug].html` (follow the same design system and webhook-placeholder rules as `/landing-page`)
+2. Build the landing page at `website/lead-magnets/[slug].html` (follow the same design system and webhook integration rules as `/landing-page`)
 3. Write the delivery email at `website/lead-magnets/[slug]-email.txt`
    - Include the Notion URL as the deliverable link
 
@@ -52,6 +52,4 @@ Set Status to "Complete" for each processed item, and fill in the **Landing URL*
 Stage all new files, commit, and push to deploy — but confirm with the user before pushing, since it triggers a live Vercel deployment.
 
 ### Step 6: Summary
-For each item: title, format, files created, and remind user to:
-- Paste the email into their CRM automation
-- Replace the `[YOUR_WEBHOOK_URL]` placeholder in the landing page if it hasn't been swapped for the real webhook yet
+For each item: title, format, files created, and remind user to paste the email into their CRM automation

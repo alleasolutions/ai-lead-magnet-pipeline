@@ -39,8 +39,9 @@ Sections in order:
 6. **Footer** — copyright line ("Alle A Solutions")
 
 Form Integration:
-- Webhook URL: `[YOUR_WEBHOOK_URL]` — **this is a placeholder.** Alle A Solutions has not yet supplied a live CRM/email webhook. Keep this exact placeholder string in the generated page's JS so it's easy to find-and-replace later, and call it out in the Step 5 summary as an open item.
-- JavaScript: validate fields, POST FormData to the webhook, show success state (copy the fetch/error-handling pattern from the reference file)
+- Webhook URL: `https://alleasolutions.twenty.com/webhooks/workflows/db05b54c-c82c-4951-9d2e-60dd1cd9bbd1/0e6476e1-d960-4f65-ad37-d1d74ccc9c5e` — a Twenty CRM workflow webhook trigger ("Website form submission" workflow). Verified working end-to-end (webhook receipt + Person record creation).
+- This webhook expects a **JSON body**, not FormData: `{ name, email, qualifier, source }` where `source` is the lead magnet's slug.
+- JavaScript: validate fields, `fetch(WEBHOOK_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name, email, qualifier, source }) })`, show success state (copy the exact pattern from the reference file)
 
 ### Step 3: Write Delivery Email
 Write the plain text delivery email. Save to `website/lead-magnets/[slug]-email.txt`.
@@ -65,5 +66,4 @@ Before pushing, confirm with the user — pushing affects the shared remote and 
 
 ### Step 5: Summary
 Output: page title, slug, files created, live URL (once deployed), and:
-- Remind the user the webhook is still a placeholder if it hasn't been replaced
 - Remind the user to paste the email into their CRM automation

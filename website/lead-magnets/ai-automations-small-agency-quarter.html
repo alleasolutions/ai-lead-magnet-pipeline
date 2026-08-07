@@ -242,8 +242,8 @@
   });
 
   // NOTE: [YOUR_WEBHOOK_URL] is a placeholder — replace with the real
-  // CRM/email webhook before this page goes live.
-  const WEBHOOK_URL = '[YOUR_WEBHOOK_URL]';
+  // Twenty CRM workflow webhook trigger. Expects a JSON body.
+  const WEBHOOK_URL = 'https://alleasolutions.twenty.com/webhooks/workflows/db05b54c-c82c-4951-9d2e-60dd1cd9bbd1/0e6476e1-d960-4f65-ad37-d1d74ccc9c5e';
 
   const form = document.getElementById('leadForm');
   const errorEl = document.getElementById('formError');
@@ -267,17 +267,11 @@
     submitBtn.textContent = 'Sending...';
 
     try {
-      const formData = new FormData();
-      formData.append('name', name);
-      formData.append('email', email);
-      formData.append('qualifier', qualifier);
-      formData.append('source', 'ai-automations-small-agency-quarter');
-
-      if (WEBHOOK_URL.startsWith('[')) {
-        throw new Error('Webhook not configured');
-      }
-
-      const res = await fetch(WEBHOOK_URL, { method: 'POST', body: formData });
+      const res = await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, qualifier, source: 'ai-automations-small-agency-quarter' }),
+      });
       if (!res.ok) throw new Error('Request failed');
 
       document.getElementById('formCard').classList.add('success');
