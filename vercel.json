@@ -1,0 +1,6 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/lead-magnets/:slug", "destination": "/website/lead-magnets/:slug.html" }
+  ]
+}
