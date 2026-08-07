@@ -1,0 +1,17 @@
+Subject: Your cold email deliverability checklist
+
+Hey {{contact.first_name}},
+
+Here's the checklist you requested: "The Cold Email Deliverability Checklist: Stay Out of Spam in 2026."
+
+Inside, you'll find the seven deliverability fundamentals that separate 95%+ inbox placement from getting buried in spam -- starting with the domain setup mistake most agencies make first, plus a quick-reference checklist so you can audit your own setup today.
+
+Read it here: [NOTION_CONTENT_PAGE_URL]
+
+Most deliverability problems trace back to skipping one of the first three items on the list -- not anything in your email copy. Fix those first.
+
+Follow Alle A Solutions for more on building systems that actually reach the inbox.
+
+Alle A Solutions
+
+PS -- if anything in the checklist doesn't fit your setup, just reply to this email. Happy to point you in the right direction.
